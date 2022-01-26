@@ -1,13 +1,19 @@
 <h1>価格推移したいURLとメールアドレスを入力してください</h1>
 
-<hr>
+
+<% if @auctions_count < 10 %>
+    <hr>
+    <%= link_to "Topへ戻る", root_path %>
+    <hr>
+<% end %>
+
 
 <!-- オークションの数が限界でも間違って登録ページに入った時、Topページに戻るように表示する。 -->
 <% if @auctions_count >= 10 %>
     <h2>
         登録できる数が限界になりました。<br>
         Topページに戻り、商品を削除してからご利用ください。
-        <%= link_to "Topページ", root_path %>
+        <%= link_to "Topへ戻る", root_path %>
     </h2>
 <% else %>
     <!-- 登録に誤りがあった際にエラーを表示する -->
